@@ -59,7 +59,7 @@ if __name__ == '__main__':
 
     Time = np.linspace(0,len(raw) / sampleRate, num=len(raw))
 
-    plt.title("MaxRage = " + str(maxRage) + ", AvgRage = " + str(avgRage))
+    plt.title("Highest Spike = " + str(maxRage) + ", Average Rage = " + str(avgRage))
     plt.plot(Time, anylasis(raw), color="red")
     plt.ylabel("Rage")
     plt.show()
