@@ -3,10 +3,18 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 
-# This is a sample Python script.
+# returns rage number
+def anylasis(number):
+    '''
+    rage = 1 / (1 + (np.e ** (number * -1)))
+    rage = rage * 1000
+    '''
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+    rage = number / 60
+    # rage = number
+
+    return rage
+
 
 
 def output(text):
@@ -29,22 +37,20 @@ if __name__ == '__main__':
         sys.exit(0)
     '''
 
-
-
     print("sample.wav is : ")
-    tempRage = raw[0]
+    tempRage = anylasis(raw[0])
     totalRage = 0
     values = 0
     for i in raw:
-        if i > tempRage:
-            tempRage = i
+        if anylasis(i) > tempRage:
+            tempRage = anylasis(i)
         if i >= 0:
-            print(i, end=' ')
-            totalRage = totalRage + i
+            #print(i, end=' ')
+            totalRage = totalRage + anylasis(i)
             values = values + 1
         else:
-            print(-i, end=' ')
-            totalRage = totalRage - i
+            #print(-i, end=' ')
+            totalRage = totalRage - anylasis(i)
             values = values + 1
 
     maxRage = tempRage
@@ -54,7 +60,7 @@ if __name__ == '__main__':
     Time = np.linspace(0,len(raw) / sampleRate, num=len(raw))
 
     plt.title("MaxRage = " + str(maxRage) + ", AvgRage = " + str(avgRage))
-    plt.plot(Time, raw, color="red")
+    plt.plot(Time, anylasis(raw), color="red")
     plt.ylabel("Rage")
     plt.show()
 
